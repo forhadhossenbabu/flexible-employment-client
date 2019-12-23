@@ -1,0 +1,43 @@
+.rp2 {
+  padding-right: 4px;
+}
+.banner-3-bg {
+  background: url("../images/bg/banner-3-bg.jpg") no-repeat center left;
+  background-size: cover;
+}
+.newsletter-bg {
+  background: url("../images/bg/newsletter-bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+.footer-bottom .copyright-text {
+  padding-top: 0;
+}
+.access-page-bg {
+  background: url("../images/bg/access-bg.jpg") no-repeat center;
+  background-size: cover;
+}
+.error-border {
+  border-bottom: 1px solid red !important;
+}
+.red {
+  color: red;
+}
+button:focus {
+  outline: 0px auto -webkit-focus-ring-color;
+}
+.access-form .form-header2 {
+  background: #e91e6391;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+
+  h5 {
+    font-size: 1.4rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: #232630;
+  }
+}
+.access-form .form-header h5 {
+  font-size: 1.8rem;
+}
