@@ -15,6 +15,16 @@ class RegisterPage extends React.Component {
     loading: false
   };
 
+  componentDidMount() {
+    const { auth } = this.props;
+    if (auth.is_authenticated && auth.role === "employe") {
+      this.props.history.push("/employer-dashbord");
+    }
+    if (auth.is_authenticated && auth.role === "candidate") {
+      this.props.history.push("/candidate-dashbord");
+    }
+  }
+
   handle_text_change = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value, errors: {} });
@@ -189,7 +199,7 @@ class RegisterPage extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ info: state.info });
+const mapStateToProps = state => ({ info: state.info, auth: state.auth });
 
 export default connect(mapStateToProps, {
   register_user: register_user

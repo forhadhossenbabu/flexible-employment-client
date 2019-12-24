@@ -13,14 +13,22 @@ class Login extends React.Component {
     errors: {}
   };
 
+  componentDidMount() {
+    const { auth } = this.props;
+    if (auth.is_authenticated && auth.role === "employe") {
+      this.props.history.push("/employer-dashbord");
+    }
+    if (auth.is_authenticated && auth.role === "candidate") {
+      this.props.history.push("/candidate-dashbord");
+    }
+  }
+
   handle_change = e => {
     const { name, value } = e.target;
-    const { errors } = this.state;
-    errors[name] = "";
 
     this.setState({
       [name]: value,
-      errors
+      errors: {}
     });
   };
 
@@ -36,18 +44,23 @@ class Login extends React.Component {
   };
 
   componentWillReceiveProps(next_props) {
-    if (this.props.info !== next_props.info) {
-      if (next_props.info.loading) {
-        this.setState({ loading: true });
-      }
-      if (!next_props.info.loading) {
-        if (next_props.info.error) {
-          this.setState({
-            loading: false,
-            errors: { ...next_props.info.errors }
-          });
-        }
-      }
+    const { info, auth } = next_props;
+
+    if (info.loading) {
+      this.setState({ loading: true });
+    }
+    if (info.error) {
+      this.setState({
+        loading: false,
+        errors: { ...info.errors }
+      });
+    }
+
+    if (auth.is_authenticated && auth.role === "employe") {
+      this.props.history.push("/employer-dashbord");
+    }
+    if (auth.is_authenticated && auth.role === "candidate") {
+      this.props.history.push("/candidate-dashbord");
     }
   }
 

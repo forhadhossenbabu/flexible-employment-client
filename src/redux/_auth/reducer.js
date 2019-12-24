@@ -7,19 +7,20 @@ const initialState = {
   user: {}
 };
 
-export default (state = initialState, action = {}) => {
-  switch (action.types) {
+export default (state = initialState, action) => {
+  switch (action.type) {
     case types.SET_CURRENT_USER:
       return {
         ...state,
         is_authenticated: !_.isEmpty(action.payload),
-        role: action.payload.role,
+        role: action.payload.role ? action.payload.role : false,
         user: action.payload
       };
     case types.SET_LOGGEDIN_USER:
       return {
         ...state,
         is_authenticated: !_.isEmpty(action.payload),
+        role: action.payload.role ? action.payload.role : false,
         user: action.payload
       };
 

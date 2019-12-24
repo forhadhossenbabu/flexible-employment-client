@@ -22,7 +22,7 @@ export const register_user = (new_user_data, history) => async dispatch => {
     .then(resp => {
       if (resp.status === 200 && resp.data.status) {
         dispatch(set_success());
-        history.push("/account-verify");
+        history.push("/account-not-verified");
       } else return dispatch(set_error(resp.data));
     })
     .catch(err => dispatch(set_error(err.response.data)));
@@ -41,4 +41,11 @@ export const login_user = user_data => async dispatch => {
       dispatch(set_loggedin_user(decoded_data));
     })
     .catch(err => dispatch(set_error(err.response.data)));
+};
+
+export const log_out_user = history => dispatch => {
+  localStorage.removeItem("jwtToken");
+  set_authorization_token(false);
+  dispatch(set_current_user({}));
+  history.push("/");
 };

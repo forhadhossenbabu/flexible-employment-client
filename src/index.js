@@ -5,7 +5,16 @@ import { Provider } from "react-redux";
 import Application from "./pages/Application";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import { store } from "./redux/store";
+import store from "./redux/store";
+import jwt_decode from "jwt-decode";
+import { set_current_user } from "./redux/_auth/action";
+import set_authorization_token from "./authentication/set_authorization_token";
+
+if (localStorage.jwtToken) {
+  set_authorization_token(localStorage.jwtToken);
+  const decoded_data = jwt_decode(localStorage.jwtToken);
+  store.dispatch(set_current_user(decoded_data));
+}
 
 ReactDOM.render(
   <Provider store={store}>

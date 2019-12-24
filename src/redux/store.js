@@ -5,4 +5,4 @@ import { createStore, applyMiddleware } from "redux";
 
 const middleware = [thunk, logger];
 
-export const store = createStore(base_reducer, applyMiddleware(...middleware));
+export default createStore(base_reducer, applyMiddleware(...middleware));

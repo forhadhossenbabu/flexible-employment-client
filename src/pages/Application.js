@@ -7,6 +7,10 @@ import AccountVerifyPage from "./account_verify_page";
 import AccountNotVerified from "./account_not_activate";
 import Login from "./login_page";
 
+import PrivateRoute from "../authentication/PrivateRoute";
+// import EmployerDashbord from "./employer-dashbord";
+import EmployerDashbordRoutes from "./employer-dashbord/employer_dashbord_routes";
+
 class Application extends React.Component {
   render() {
     return (
@@ -25,6 +29,12 @@ class Application extends React.Component {
             path="/account-not-verified"
             component={AccountNotVerified}
           />
+
+          <PrivateRoute
+            path="/employer-dashbord"
+            component={EmployerDashbordRoutes}
+          />
+          <Route render={() => <h2>404 NOT FOUND</h2>} />
         </Switch>
       </React.Fragment>
     );

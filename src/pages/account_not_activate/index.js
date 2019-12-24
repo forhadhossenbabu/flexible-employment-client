@@ -7,7 +7,7 @@ export default class extends React.Component {
     return (
       <div>
         <BigMessage
-          message="Email Is Not Verified"
+          message="Account Successfuly Created"
           details="Please Verify The Email And Come Back. We Will Here For You"
           image={require("../../images/error.png")}
         />

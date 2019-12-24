@@ -41,3 +41,9 @@ button:focus {
 .access-form .form-header h5 {
   font-size: 1.8rem;
 }
+.header-top-account .account-button:before,
+.header-top-account > button:before {
+  content: "\e682";
+  font-family: "themify";
+  margin-right: 6px;
+}
