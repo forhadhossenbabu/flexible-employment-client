@@ -47,3 +47,24 @@ button:focus {
   font-family: "themify";
   margin-right: 6px;
 }
+.dashboard-container .dashboard-content-wrapper {
+  width: 75%;
+}
+.active {
+  color: #246df8 !important;
+  /* background-image: -webkit-gradient(linear, left top, right top, from(rgba(36, 109, 248, 0.2)), to(rgba(36, 109, 248, 0))); */
+  /* background-image: -webkit-linear-gradient(left, rgba(36, 109, 248, 0.2), rgba(36, 109, 248, 0)); */
+  background-image: -o-linear-gradient(
+    left,
+    rgba(36, 109, 248, 0.2),
+    rgba(36, 109, 248, 0)
+  );
+  background-image: linear-gradient(
+    to right,
+    rgba(36, 109, 248, 0.2),
+    rgba(36, 109, 248, 0)
+  );
+}
+.dashboard-content-wrapper.create-profile {
+  width: 100%;
+}

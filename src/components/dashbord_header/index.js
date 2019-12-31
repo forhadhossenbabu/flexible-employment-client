@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { log_out_user } from "../../redux/_auth/action";
+import { Link } from "react-router-dom";
 
 class DashbordHeader extends React.Component {
   render() {
@@ -13,7 +14,9 @@ class DashbordHeader extends React.Component {
             <div className="col">
               <div className="header-top">
                 <div className="logo-area">
-                  <h3>LOGO</h3>
+                  <Link to="/">
+                    <h3>LOGO</h3>
+                  </Link>
                 </div>
                 <div className="header-top-toggler">
                   <div className="header-top-toggler-button"></div>

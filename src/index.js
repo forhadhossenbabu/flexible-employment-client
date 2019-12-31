@@ -16,15 +16,15 @@ if (localStorage.jwtToken) {
   store.dispatch(set_current_user(decoded_data));
 }
 
-ReactDOM.render(
+const jsx = (
   <Provider store={store}>
     <BrowserRouter>
       <Application />
     </BrowserRouter>
-  </Provider>,
-
-  document.getElementById("application_content")
+  </Provider>
 );
+
+ReactDOM.render(jsx, document.getElementById("application_content"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

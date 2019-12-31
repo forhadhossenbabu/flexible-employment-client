@@ -8,8 +8,9 @@ import AccountNotVerified from "./account_not_activate";
 import Login from "./login_page";
 
 import PrivateRoute from "../authentication/PrivateRoute";
-// import EmployerDashbord from "./employer-dashbord";
-import EmployerDashbordRoutes from "./employer-dashbord/employer_dashbord_routes";
+import EmployerDashbord from "./employer-dashbord";
+import CreateEmployerProfile from "./create_employer_profile";
+import EmployerPostJob from "./employer-post-job";
 
 class Application extends React.Component {
   render() {
@@ -31,8 +32,19 @@ class Application extends React.Component {
           />
 
           <PrivateRoute
+            exact
             path="/employer-dashbord"
-            component={EmployerDashbordRoutes}
+            component={EmployerDashbord}
+          />
+          <PrivateRoute
+            exact
+            path="/create-employer-profile"
+            component={CreateEmployerProfile}
+          />
+          <PrivateRoute
+            exact
+            path="/employer-post-job"
+            component={EmployerPostJob}
           />
           <Route render={() => <h2>404 NOT FOUND</h2>} />
         </Switch>
