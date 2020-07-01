@@ -4,16 +4,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Forhad Chowdhury
 
-const readline = require('readline');
+const interfaces = require("os").networkInterfaces();
+let addresses = {};
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+for (let interface in interfaces) {
+  for (let k2 in interfaces[interface]) {
+    const address = interfaces[interface][k2];
+    if (address.family === "IPv4" && !address.internal) {
+      addresses["MAC"] = address.mac;
+      addresses["IPv4"] = address.address;
+      addresses["NET_MASK"] = address.netmask;
+      console.log("Internal Info :: " + address.internal);
+    }
+  }
+}
 
-rl.question('What do you think of Node.js? ', (answer) => {
-  // TODO: Log the answer in a database
-  console.log(`Thank you for your valuable feedback: ${answer}`);
-
-  rl.close();
-});
+console.log(addresses);
